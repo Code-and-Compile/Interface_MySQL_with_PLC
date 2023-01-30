@@ -38,13 +38,14 @@
         "h": 162
     },
     {
-        "id": "821a2ea6c917c621",
+        "id": "84133d16250995e7",
         "type": "group",
         "z": "1f38868320890080",
         "name": "",
         "style": {
-            "fill": "#e3f3d3",
-            "label": true
+            "label": true,
+            "color": "#e3f3d3",
+            "fill": "#e3f3d3"
         },
         "nodes": [
             "92faf77c.5ffee8",
@@ -59,12 +60,17 @@
             "2599517d492fca43",
             "86bb75277e9de4ec",
             "17b377ee0afff891",
-            "5c4f90b5b2eb6215"
+            "5c4f90b5b2eb6215",
+            "26f0c8d689237b5e",
+            "db9477e0d78445a8",
+            "6749646bf1323b4b",
+            "f50dda547ddab6e8",
+            "53730ae5cb8c86d1"
         ],
         "x": 34,
         "y": 219,
-        "w": 1352,
-        "h": 182
+        "w": 1412,
+        "h": 242
     },
     {
         "id": "9ebd97a26562fd52",
@@ -251,7 +257,7 @@
         "id": "92faf77c.5ffee8",
         "type": "function",
         "z": "1f38868320890080",
-        "g": "821a2ea6c917c621",
+        "g": "84133d16250995e7",
         "name": "Read from MySQL",
         "func": "msg.topic = \"Select * from mysql_training.table;\";\nreturn msg;",
         "outputs": 1,
@@ -260,7 +266,7 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
                 "b6eb04ec.5164b8"
@@ -271,14 +277,15 @@
         "id": "b6eb04ec.5164b8",
         "type": "mysql",
         "z": "1f38868320890080",
-        "g": "821a2ea6c917c621",
+        "g": "84133d16250995e7",
         "mydb": "9ebd97a26562fd52",
         "name": "",
         "x": 930,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
-                "129cea026e82c9b5"
+                "129cea026e82c9b5",
+                "db9477e0d78445a8"
             ]
         ]
     },
@@ -297,12 +304,12 @@
         "id": "e326eafb9cbec9cb",
         "type": "ui_template",
         "z": "1f38868320890080",
-        "g": "821a2ea6c917c621",
+        "g": "84133d16250995e7",
         "group": "2e52cc461d10f3d7",
         "name": "table",
         "order": 5,
         "width": "6",
-        "height": "10",
+        "height": "20",
         "format": "\n<html>\n<head>\n    \n<style>\n#history {\n\nth, td border: 1px solid black;\nborder-collapse: collapse;\nfont-family: \"Arial\";\nwidth: 100%;\n    }\n\n#history td, #history th {\nborder: 1px solid #000000;\npadding: 8px;\n}\n\n#history tr:nth-child(even){background-color: #ffffff;}\n#history tr:hover {background-color: #73E0FD;}\n#history th {\npadding-top: 12px;\npadding-bottom: 12px;\ntext-align: center;\nbackground-color: #A8E7FC;\ncolor: black;\n    \n}\n</style>\n\n</head>\n<body>\n<table id=\"history\" border=\"1\">\n    <tr align=\"center\">\n            <th>Timestamp</th>\n            <th>Value 1</th>\n            <th>Value 2</th>\n    </tr>\n    <tbody>\n    <tr align=\"center\" ng-repeat=\"row in msg.payload\">\n        <td ng-repeat=\"item in row\" >{{item}}</td>\n    </tr>\n</tbody>\n</table>",
         "storeOutMessages": true,
         "fwdInMessages": true,
@@ -310,7 +317,7 @@
         "templateScope": "local",
         "className": "",
         "x": 1090,
-        "y": 360,
+        "y": 420,
         "wires": [
             []
         ]
@@ -378,7 +385,7 @@
         "id": "8e24da0fa310bf47",
         "type": "function",
         "z": "1f38868320890080",
-        "g": "821a2ea6c917c621",
+        "g": "84133d16250995e7",
         "name": "Insert Query",
         "func": "var time1 = global.get('time1');//String format\nvar time2 = global.get('time2');//ISO format\nvar value1= msg.payload;\nvar value2= msg.payload + 10;\nmsg.topic = 'INSERT INTO`mysql_training`.`table` (timestamp1,timestamp2, value1,value2)VALUES(\"'+time1+'\",'+time2+','+value1+','+value2+');';\nreturn msg;",
         "outputs": 1,
@@ -387,7 +394,7 @@
         "finalize": "",
         "libs": [],
         "x": 390,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "4db4f86d0563112e"
@@ -398,14 +405,14 @@
         "id": "400ff1298b88f506",
         "type": "random",
         "z": "1f38868320890080",
-        "g": "821a2ea6c917c621",
+        "g": "84133d16250995e7",
         "name": "",
         "low": 1,
         "high": 10,
         "inte": "true",
         "property": "payload",
         "x": 200,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "8e24da0fa310bf47"
@@ -416,13 +423,13 @@
         "id": "b085c63a7f7dea90",
         "type": "ui_chart",
         "z": "1f38868320890080",
-        "g": "821a2ea6c917c621",
+        "g": "84133d16250995e7",
         "name": "",
         "group": "3bdc5520.301bda",
         "order": 4,
         "width": "15",
         "height": "10",
-        "label": "Line chart",
+        "label": "Line chart (Multiple)",
         "chartType": "line",
         "legend": "true",
         "xformat": "HH:mm:ss",
@@ -451,8 +458,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1300,
-        "y": 280,
+        "x": 1330,
+        "y": 340,
         "wires": [
             []
         ]
@@ -481,7 +488,7 @@
         "id": "129cea026e82c9b5",
         "type": "change",
         "z": "1f38868320890080",
-        "g": "821a2ea6c917c621",
+        "g": "84133d16250995e7",
         "name": "Format data",
         "rules": [
             {
@@ -498,10 +505,11 @@
         "to": "",
         "reg": false,
         "x": 1110,
-        "y": 280,
+        "y": 340,
         "wires": [
             [
-                "b085c63a7f7dea90"
+                "b085c63a7f7dea90",
+                "53730ae5cb8c86d1"
             ]
         ]
     },
@@ -527,11 +535,11 @@
         "id": "4db4f86d0563112e",
         "type": "mysql",
         "z": "1f38868320890080",
-        "g": "821a2ea6c917c621",
+        "g": "84133d16250995e7",
         "mydb": "9ebd97a26562fd52",
         "name": "",
         "x": 550,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "92faf77c.5ffee8",
@@ -543,7 +551,7 @@
         "id": "7f47b34a0104fdbf",
         "type": "inject",
         "z": "1f38868320890080",
-        "g": "821a2ea6c917c621",
+        "g": "84133d16250995e7",
         "name": "Clear",
         "props": [
             {
@@ -562,7 +570,7 @@
         "payload": "[]",
         "payloadType": "json",
         "x": 1110,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "b085c63a7f7dea90"
@@ -573,7 +581,7 @@
         "id": "2599517d492fca43",
         "type": "function",
         "z": "1f38868320890080",
-        "g": "821a2ea6c917c621",
+        "g": "84133d16250995e7",
         "name": "Read from MySQL",
         "func": "msg.topic = \"Select timestamp1, value1, value2 from mysql_training.table;\";\nreturn msg;",
         "outputs": 1,
@@ -582,7 +590,7 @@
         "finalize": "",
         "libs": [],
         "x": 750,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "86bb75277e9de4ec"
@@ -593,11 +601,11 @@
         "id": "86bb75277e9de4ec",
         "type": "mysql",
         "z": "1f38868320890080",
-        "g": "821a2ea6c917c621",
+        "g": "84133d16250995e7",
         "mydb": "9ebd97a26562fd52",
         "name": "",
         "x": 930,
-        "y": 360,
+        "y": 420,
         "wires": [
             [
                 "e326eafb9cbec9cb"
@@ -612,7 +620,8 @@
         "name": "link out 1",
         "mode": "link",
         "links": [
-            "17b377ee0afff891"
+            "17b377ee0afff891",
+            "e9d04e42437628dc"
         ],
         "x": 825,
         "y": 100,
@@ -622,13 +631,13 @@
         "id": "17b377ee0afff891",
         "type": "link in",
         "z": "1f38868320890080",
-        "g": "821a2ea6c917c621",
+        "g": "84133d16250995e7",
         "name": "link in 1",
         "links": [
             "fa955112670d61cd"
         ],
         "x": 75,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "400ff1298b88f506"
@@ -639,11 +648,149 @@
         "id": "5c4f90b5b2eb6215",
         "type": "comment",
         "z": "1f38868320890080",
-        "g": "821a2ea6c917c621",
+        "g": "84133d16250995e7",
         "name": "Insert PLC values here",
         "info": "",
         "x": 200,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "26f0c8d689237b5e",
+        "type": "ui_chart",
+        "z": "1f38868320890080",
+        "g": "84133d16250995e7",
+        "name": "",
+        "group": "3bdc5520.301bda",
+        "order": 4,
+        "width": "15",
+        "height": "10",
+        "label": "Line chart (Single)",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Waiting for the data..",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#e16614",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1330,
         "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "db9477e0d78445a8",
+        "type": "change",
+        "z": "1f38868320890080",
+        "g": "84133d16250995e7",
+        "name": "Format data",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "(\t  $series := [\t    { \"field\": \"value1\", \"label\": \"Value 1\" }]\t  ;\t\t  $xaxis := \"timestamp2\";\t  [\t    {\t      \"series\": [$series.label],\t      \"data\": $series.[[\t        (\t          $yaxis := $.field;\t          $$.payload.{\t            \"x\": $lookup($, $xaxis),\t            \"y\": $lookup($, $yaxis)\t          }\t        )\t      ]],\t      \"label\" : \"MySQL Values\"\t    }\t  ]\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 260,
+        "wires": [
+            [
+                "26f0c8d689237b5e",
+                "f50dda547ddab6e8"
+            ]
+        ]
+    },
+    {
+        "id": "6749646bf1323b4b",
+        "type": "inject",
+        "z": "1f38868320890080",
+        "g": "84133d16250995e7",
+        "name": "Clear",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "x": 1110,
+        "y": 300,
+        "wires": [
+            [
+                "26f0c8d689237b5e"
+            ]
+        ]
+    },
+    {
+        "id": "f50dda547ddab6e8",
+        "type": "debug",
+        "z": "1f38868320890080",
+        "g": "84133d16250995e7",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1300,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "53730ae5cb8c86d1",
+        "type": "debug",
+        "z": "1f38868320890080",
+        "g": "84133d16250995e7",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1300,
+        "y": 380,
         "wires": []
     },
     {
