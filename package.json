@@ -2,7 +2,11 @@
     "name": "Interface_MySQL_with_PLC",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-node-mysql": "1.0.3",
+        "node-red-dashboard": "3.2.3",
+        "node-red-node-random": "0.4.1"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flow.json",
