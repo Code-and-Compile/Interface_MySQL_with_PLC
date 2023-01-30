@@ -1,1 +1,1500 @@
-[]
+[
+    {
+        "id": "1f38868320890080",
+        "type": "tab",
+        "label": "MySQL Values",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "47cb23609908597c",
+        "type": "tab",
+        "label": "Charts",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9ebd97a26562fd52",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "mysql",
+        "tz": "de",
+        "charset": "UTF8"
+    },
+    {
+        "id": "3bdc5520.301bda",
+        "type": "ui_group",
+        "name": "Graph from MySQL",
+        "tab": "322a3a8e.d28506",
+        "order": 1,
+        "disp": true,
+        "width": "15",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2e52cc461d10f3d7",
+        "type": "ui_group",
+        "name": "MySQL Data",
+        "tab": "322a3a8e.d28506",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "322a3a8e.d28506",
+        "type": "ui_tab",
+        "name": "MySQL Data",
+        "icon": "dashboard",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3c6f49268ed85bc4",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "89749fb7.87f01",
+        "type": "ui_group",
+        "name": "Charts",
+        "tab": "d7901f40.2659d",
+        "order": 2,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "ab397e95.29ebe",
+        "type": "ui_group",
+        "name": "Inputs",
+        "tab": "d7901f40.2659d",
+        "order": 1,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "4e7edda4.417004",
+        "type": "ui_group",
+        "name": "Group 3",
+        "tab": "d7901f40.2659d",
+        "order": 3,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "d7901f40.2659d",
+        "type": "ui_tab",
+        "name": "Charts",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "92faf77c.5ffee8",
+        "type": "function",
+        "z": "1f38868320890080",
+        "name": "Read from MySQL",
+        "func": "msg.topic = \"Select * from mysql_training.table;\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 180,
+        "wires": [
+            [
+                "b6eb04ec.5164b8"
+            ]
+        ]
+    },
+    {
+        "id": "b6eb04ec.5164b8",
+        "type": "mysql",
+        "z": "1f38868320890080",
+        "mydb": "9ebd97a26562fd52",
+        "name": "",
+        "x": 930,
+        "y": 180,
+        "wires": [
+            [
+                "129cea026e82c9b5"
+            ]
+        ]
+    },
+    {
+        "id": "755e08a5.08de88",
+        "type": "comment",
+        "z": "1f38868320890080",
+        "name": "Flow to query database and format for chart",
+        "info": "",
+        "x": 210,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e326eafb9cbec9cb",
+        "type": "ui_template",
+        "z": "1f38868320890080",
+        "group": "2e52cc461d10f3d7",
+        "name": "",
+        "order": 5,
+        "width": "6",
+        "height": "10",
+        "format": "\n<html>\n<head>\n    \n<style>\n#history {\n\nth, td border: 1px solid black;\nborder-collapse: collapse;\nfont-family: \"Arial\";\nwidth: 100%;\n    }\n\n#history td, #history th {\nborder: 1px solid #000000;\npadding: 8px;\n}\n\n#history tr:nth-child(even){background-color: #ffffff;}\n#history tr:hover {background-color: #73E0FD;}\n#history th {\npadding-top: 12px;\npadding-bottom: 12px;\ntext-align: center;\nbackground-color: #A8E7FC;\ncolor: black;\n    \n}\n</style>\n\n</head>\n<body>\n<table id=\"history\" border=\"1\">\n    <tr align=\"center\">\n            <th>Timestamp</th>\n            <th>Value 1</th>\n            <th>Value 2</th>\n    </tr>\n    <tbody>\n    <tr align=\"center\" ng-repeat=\"row in msg.payload\">\n        <td ng-repeat=\"item in row\" >{{item}}</td>\n    </tr>\n</tbody>\n</table>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1100,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "17838719.4d97c9",
+        "type": "inject",
+        "z": "1f38868320890080",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "1b74bf88552d3037",
+                "3161c7607f5a0b87"
+            ]
+        ]
+    },
+    {
+        "id": "1b74bf88552d3037",
+        "type": "change",
+        "z": "1f38868320890080",
+        "name": "Format Date time",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$moment($$.payload).tz(\"UTC\").format(\"YYYY-MM-DD hh:mm:ss A\")",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 100,
+        "wires": [
+            [
+                "ae44d3cecc0465cb"
+            ]
+        ]
+    },
+    {
+        "id": "8e24da0fa310bf47",
+        "type": "function",
+        "z": "1f38868320890080",
+        "name": "function 1",
+        "func": "var time1 = global.get('time1');\nvar time2 = global.get('time2');\nvar value1= msg.payload;\nvar value2= msg.payload + 10;\nmsg.topic = 'INSERT INTO`mysql_training`.`table` (timestamp1,timestamp2, value1,value2)VALUES(\"'+time1+'\",'+time2+','+value1+','+value2+');';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 200,
+        "wires": [
+            [
+                "4db4f86d0563112e"
+            ]
+        ]
+    },
+    {
+        "id": "400ff1298b88f506",
+        "type": "random",
+        "z": "1f38868320890080",
+        "name": "",
+        "low": 1,
+        "high": 10,
+        "inte": "true",
+        "property": "payload",
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "8e24da0fa310bf47"
+            ]
+        ]
+    },
+    {
+        "id": "b085c63a7f7dea90",
+        "type": "ui_chart",
+        "z": "1f38868320890080",
+        "name": "",
+        "group": "3bdc5520.301bda",
+        "order": 4,
+        "width": "15",
+        "height": "10",
+        "label": "Line chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Waiting for the data..",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#e16614",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1340,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ae44d3cecc0465cb",
+        "type": "function",
+        "z": "1f38868320890080",
+        "name": "Set.Global",
+        "func": "global.set('time1',msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 100,
+        "wires": [
+            [
+                "fa955112670d61cd"
+            ]
+        ]
+    },
+    {
+        "id": "129cea026e82c9b5",
+        "type": "change",
+        "z": "1f38868320890080",
+        "name": "Format data",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "(\t  $series := [\t    { \"field\": \"value1\", \"label\": \"Value 1\" },\t    { \"field\": \"value2\", \"label\": \"Value 2\" }\t  ];\t\t  $xaxis := \"timestamp2\";\t  [\t    {\t      \"series\": $series.label,\t      \"data\": $series.[\t        (\t          $yaxis := $.field;\t          $$.payload.{\t            \"x\": $lookup($, $xaxis),\t            \"y\": $lookup($, $yaxis)\t          }\t        )\t      ],\t      \"label\" : \"MySQL Values\"\t    }\t  ]\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 180,
+        "wires": [
+            [
+                "b085c63a7f7dea90"
+            ]
+        ]
+    },
+    {
+        "id": "3161c7607f5a0b87",
+        "type": "function",
+        "z": "1f38868320890080",
+        "name": "Set.Global",
+        "func": "global.set('time2',msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4db4f86d0563112e",
+        "type": "mysql",
+        "z": "1f38868320890080",
+        "mydb": "9ebd97a26562fd52",
+        "name": "",
+        "x": 530,
+        "y": 200,
+        "wires": [
+            [
+                "92faf77c.5ffee8",
+                "2599517d492fca43"
+            ]
+        ]
+    },
+    {
+        "id": "7f47b34a0104fdbf",
+        "type": "inject",
+        "z": "1f38868320890080",
+        "name": "Clear",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "x": 1110,
+        "y": 220,
+        "wires": [
+            [
+                "b085c63a7f7dea90"
+            ]
+        ]
+    },
+    {
+        "id": "2599517d492fca43",
+        "type": "function",
+        "z": "1f38868320890080",
+        "name": "Read from MySQL",
+        "func": "msg.topic = \"Select timestamp1, value1, value2 from mysql_training.table;\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 260,
+        "wires": [
+            [
+                "86bb75277e9de4ec"
+            ]
+        ]
+    },
+    {
+        "id": "86bb75277e9de4ec",
+        "type": "mysql",
+        "z": "1f38868320890080",
+        "mydb": "9ebd97a26562fd52",
+        "name": "",
+        "x": 930,
+        "y": 260,
+        "wires": [
+            [
+                "e326eafb9cbec9cb"
+            ]
+        ]
+    },
+    {
+        "id": "fa955112670d61cd",
+        "type": "link out",
+        "z": "1f38868320890080",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "17b377ee0afff891"
+        ],
+        "x": 735,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "17b377ee0afff891",
+        "type": "link in",
+        "z": "1f38868320890080",
+        "name": "link in 1",
+        "links": [
+            "fa955112670d61cd"
+        ],
+        "x": 55,
+        "y": 200,
+        "wires": [
+            [
+                "400ff1298b88f506"
+            ]
+        ]
+    },
+    {
+        "id": "1c24be99.3dc2f1",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "",
+        "func": "var m={};\nm.labels = [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\"];\nm.series = ['Series A', 'Series B', 'Series C'];\nm.data = [\n    [65, 59, 80, 81, 56, 55, 40],\n    [28, 48, 40, 19, 86, 27, 90],\n    [38, 28, 20, 49, 45, 60, 20]\n  ];\nreturn {payload:[m]};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 380,
+        "wires": [
+            [
+                "80476e4d.6f64a",
+                "f4e610a1.1c381",
+                "fe515729.789e58",
+                "3c681829.4ff7d8"
+            ]
+        ]
+    },
+    {
+        "id": "80476e4d.6f64a",
+        "type": "ui_chart",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "89749fb7.87f01",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "line chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "No Data",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 570,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2583d993.df9cb6",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "",
+        "func": "var chart = [{\n    \"series\":[\"A\",\"B\",\"C\"],\n    \"data\":[[{\"x\":1504029632890,\"y\":5},{\"x\":1504029636001,\"y\":4},{\"x\":1504029638656,\"y\":2}],[{\"x\":1504029633514,\"y\":6},{\"x\":1504029636622,\"y\":7},{\"x\":1504029639539,\"y\":6}],[{\"x\":1504029634400,\"y\":7},{\"x\":1504029637959,\"y\":9},{\"x\":1504029640317,\"y\":7}]],\n    \"labels\":[\"\"]\n}];\nmsg.payload = chart;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "80476e4d.6f64a",
+                "23148e520d99c8d5"
+            ]
+        ]
+    },
+    {
+        "id": "c4af128e.0eb42",
+        "type": "ui_button",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "ab397e95.29ebe",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Time Line 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 160,
+        "y": 220,
+        "wires": [
+            [
+                "2583d993.df9cb6"
+            ]
+        ]
+    },
+    {
+        "id": "f4e610a1.1c381",
+        "type": "ui_chart",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "89749fb7.87f01",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "bar chart",
+        "chartType": "bar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "No Data",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 2,
+        "x": 570,
+        "y": 180,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ed9dcc7d.422ad",
+        "type": "ui_button",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "ab397e95.29ebe",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "array",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 140,
+        "y": 380,
+        "wires": [
+            [
+                "1c24be99.3dc2f1"
+            ]
+        ]
+    },
+    {
+        "id": "fc7b7968.33bb08",
+        "type": "random",
+        "z": "47cb23609908597c",
+        "name": "",
+        "low": "1",
+        "high": "10000000",
+        "inte": "true",
+        "x": 330,
+        "y": 580,
+        "wires": [
+            [
+                "80476e4d.6f64a"
+            ]
+        ]
+    },
+    {
+        "id": "12b813b5.e358bc",
+        "type": "inject",
+        "z": "47cb23609908597c",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 160,
+        "y": 580,
+        "wires": [
+            [
+                "fc7b7968.33bb08"
+            ]
+        ]
+    },
+    {
+        "id": "c6549407.0c1348",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "",
+        "func": "var m={};\nm.labels = [10,20,30,40,50,60,70];\nm.series = ['Series A', 'Series B', 'Series C', 'Series D'];\nm.data = [\n    [65, 59, 80, 81, 56, 55, 40],\n    [28, 48, 40, 19, 86, 27, 90],\n    [38, 28, 20, 49, 45, 60, 20],\n    [58, 18, 40, 29, 15, 30, 60]\n  ];\nreturn {payload:[m]};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 420,
+        "wires": [
+            [
+                "80476e4d.6f64a",
+                "f4e610a1.1c381",
+                "fe515729.789e58",
+                "3c681829.4ff7d8"
+            ]
+        ]
+    },
+    {
+        "id": "27cc2706.421b18",
+        "type": "ui_button",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "ab397e95.29ebe",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "array2",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 140,
+        "y": 420,
+        "wires": [
+            [
+                "c6549407.0c1348"
+            ]
+        ]
+    },
+    {
+        "id": "7bcd06e3.5cbab8",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "",
+        "func": "var chart = [{\n    \"series\":[\"A\",\"B\",\"C\"],\n        \"data\":[[{\"x\":1,\"y\":5},{\"x\":2,\"y\":4},{\"x\":3,\"y\":2}],[{\"x\":4,\"y\":6},{\"x\":5,\"y\":7},{\"x\":6,\"y\":6}],[{\"x\":7,\"y\":7},{\"x\":8,\"y\":9},{\"x\":9,\"y\":7}]],\n    \"labels\":[\"\"]\n}];\nmsg.payload = chart;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 260,
+        "wires": [
+            [
+                "80476e4d.6f64a"
+            ]
+        ]
+    },
+    {
+        "id": "219123f5.f1d76c",
+        "type": "ui_button",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "ab397e95.29ebe",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Time Line 2",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 160,
+        "y": 260,
+        "wires": [
+            [
+                "7bcd06e3.5cbab8"
+            ]
+        ]
+    },
+    {
+        "id": "22caebb3.7cfe94",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "",
+        "func": "var m = {};\nm.labels = [\"Download\", \"In-Store\", \"Mail-Order\"];\nm.data = [[300, 500, 100]];\nm.series = [\"Sales\"];\nreturn {payload:[m],topic:msg.topic};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 620,
+        "wires": [
+            [
+                "3c681829.4ff7d8",
+                "f4e610a1.1c381",
+                "80476e4d.6f64a",
+                "f5108a61.91a6b8",
+                "c7f5183f.012728",
+                "fe515729.789e58"
+            ]
+        ]
+    },
+    {
+        "id": "3c681829.4ff7d8",
+        "type": "ui_chart",
+        "z": "47cb23609908597c",
+        "name": "pie chart",
+        "group": "89749fb7.87f01",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "pie chart",
+        "chartType": "pie",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": "30",
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 2,
+        "x": 610,
+        "y": 360,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7d0f50b6.398f3",
+        "type": "ui_button",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "ab397e95.29ebe",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "array for pie",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "Pie 4 T",
+        "x": 160,
+        "y": 620,
+        "wires": [
+            [
+                "22caebb3.7cfe94"
+            ]
+        ]
+    },
+    {
+        "id": "bf37d8d7.9bd558",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "",
+        "func": "var chart = [{\n    \"series\":[\"A\",\"B\",\"C\"],\n        \"data\":[[{\"x\":1000000,\"y\":5},{\"x\":2000000,\"y\":4},{\"x\":3000000,\"y\":2}],[{\"x\":4000000,\"y\":6},{\"x\":5000000,\"y\":7},{\"x\":6000000,\"y\":6}],[{\"x\":7000000,\"y\":7},{\"x\":8000000,\"y\":9},{\"x\":9000000,\"y\":7}]],\n    \"labels\":[\"\"]\n}];\nmsg.payload = chart;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 300,
+        "wires": [
+            [
+                "80476e4d.6f64a"
+            ]
+        ]
+    },
+    {
+        "id": "e897b370.e8548",
+        "type": "ui_button",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "ab397e95.29ebe",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Time Line 3",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "bf37d8d7.9bd558"
+            ]
+        ]
+    },
+    {
+        "id": "f6963e44.a328f",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "",
+        "func": "var chart = [{\n    \"series\":[\"A\",\"B\",\"C\"],\n        \"data\":[[{\"x\":1000000000,\"y\":5},{\"x\":2000000000,\"y\":4},{\"x\":3000000000,\"y\":2}],[{\"x\":4000000000,\"y\":6},{\"x\":5000000000,\"y\":7},{\"x\":6000000000,\"y\":6}],[{\"x\":7000000000,\"y\":7},{\"x\":8000000000,\"y\":9},{\"x\":9000000000,\"y\":7}]],\n    \"labels\":[\"\"]\n}];\nmsg.payload = chart;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "80476e4d.6f64a"
+            ]
+        ]
+    },
+    {
+        "id": "9462d11a.374a1",
+        "type": "ui_button",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "ab397e95.29ebe",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Time Line 4",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 160,
+        "y": 340,
+        "wires": [
+            [
+                "f6963e44.a328f"
+            ]
+        ]
+    },
+    {
+        "id": "62668961.a49728",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "",
+        "func": "var m={\n    \"series\":[\"X\",\"Y\",\"Z\"],\n    \"data\":[[5,6,9],[3,8,5],[6,7,2]],\n    \"labels\":[\"Jan\",\"Feb\",\"Mar\"]\n};\nreturn {payload:[m]};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 540,
+        "wires": [
+            [
+                "80476e4d.6f64a",
+                "f4e610a1.1c381",
+                "3c681829.4ff7d8",
+                "f5108a61.91a6b8",
+                "c7f5183f.012728",
+                "fe515729.789e58"
+            ]
+        ]
+    },
+    {
+        "id": "b4c7442f.5481b8",
+        "type": "ui_button",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "ab397e95.29ebe",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "array3c",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 150,
+        "y": 540,
+        "wires": [
+            [
+                "62668961.a49728"
+            ]
+        ]
+    },
+    {
+        "id": "da3771b3.5a321",
+        "type": "ui_button",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "ab397e95.29ebe",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "array 2 for pie",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "Pie Hole",
+        "x": 170,
+        "y": 660,
+        "wires": [
+            [
+                "2b9c546c.58865c"
+            ]
+        ]
+    },
+    {
+        "id": "2b9c546c.58865c",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "",
+        "func": "var m = {};\nm.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];\nm.data = [[28, 48, 40, 19, 86, 27, 90]];\nm.series = ['Series A'];\nreturn {payload:[m],topic:msg.topic};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 660,
+        "wires": [
+            [
+                "3c681829.4ff7d8",
+                "f4e610a1.1c381",
+                "c7f5183f.012728",
+                "f5108a61.91a6b8",
+                "80476e4d.6f64a",
+                "fe515729.789e58"
+            ]
+        ]
+    },
+    {
+        "id": "c0d6a942.dc82f8",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "topic",
+        "func": "var m = [\n    {topic:\"X\", payload:22},\n    {topic:\"Y\", payload:66},\n    {topic:\"Z\", payload:42}\n    ];\nreturn [m];",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 180,
+        "wires": [
+            [
+                "f4e610a1.1c381",
+                "3c681829.4ff7d8",
+                "80476e4d.6f64a",
+                "fe515729.789e58"
+            ]
+        ]
+    },
+    {
+        "id": "b8f011ee.6b874",
+        "type": "inject",
+        "z": "47cb23609908597c",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "c0d6a942.dc82f8"
+            ]
+        ]
+    },
+    {
+        "id": "23311ede.673912",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "label",
+        "func": "var m = [\n    {label:\"A\", payload:22},\n    {label:\"B\", payload:66},\n    {label:\"C\", payload:42},\n    ];\nreturn [m];",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 140,
+        "wires": [
+            [
+                "f4e610a1.1c381",
+                "3c681829.4ff7d8",
+                "80476e4d.6f64a",
+                "fe515729.789e58"
+            ]
+        ]
+    },
+    {
+        "id": "564d1920.d756d8",
+        "type": "inject",
+        "z": "47cb23609908597c",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "23311ede.673912"
+            ]
+        ]
+    },
+    {
+        "id": "437e7323.02763c",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "",
+        "func": "var m={\n    \"series\":[\"X\",\"Y\",\"Z\"],\n    \"data\":[[5],[3],[6]],\n    \"labels\":[\"Jan\"]\n};\nreturn {payload:[m]};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 460,
+        "wires": [
+            [
+                "f4e610a1.1c381",
+                "f5108a61.91a6b8",
+                "c7f5183f.012728",
+                "80476e4d.6f64a",
+                "fe515729.789e58",
+                "3c681829.4ff7d8"
+            ]
+        ]
+    },
+    {
+        "id": "e741cd13.7e8da",
+        "type": "ui_button",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "ab397e95.29ebe",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "array3a",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 150,
+        "y": 460,
+        "wires": [
+            [
+                "437e7323.02763c"
+            ]
+        ]
+    },
+    {
+        "id": "10291d1f.0a5d13",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "",
+        "func": "var m={\n    \"series\":[\"X\"],\n    \"data\":[[5,3,6]],\n    \"labels\":[\"Jan\",\"Feb\",\"Mar\"]\n};\nreturn {payload:[m]};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 500,
+        "wires": [
+            [
+                "f4e610a1.1c381",
+                "80476e4d.6f64a",
+                "c7f5183f.012728",
+                "f5108a61.91a6b8",
+                "fe515729.789e58",
+                "3c681829.4ff7d8"
+            ]
+        ]
+    },
+    {
+        "id": "be38d116.6de45",
+        "type": "ui_button",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "ab397e95.29ebe",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "array3b",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 150,
+        "y": 500,
+        "wires": [
+            [
+                "10291d1f.0a5d13"
+            ]
+        ]
+    },
+    {
+        "id": "fe515729.789e58",
+        "type": "ui_chart",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "4e7edda4.417004",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "horizontal bar",
+        "chartType": "horizontalBar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": "30",
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 2,
+        "x": 590,
+        "y": 240,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f5108a61.91a6b8",
+        "type": "ui_chart",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "4e7edda4.417004",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "polar chart",
+        "chartType": "polar-area",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": "30",
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 2,
+        "x": 620,
+        "y": 480,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c7f5183f.012728",
+        "type": "ui_chart",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "4e7edda4.417004",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "radar chart",
+        "chartType": "radar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": "30",
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 2,
+        "x": 620,
+        "y": 540,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "71de4fb7.df017",
+        "type": "function",
+        "z": "47cb23609908597c",
+        "name": "label",
+        "func": "var m = [\n    {label:\"A\", payload:22, series:\"X\"},\n    {label:\"B\", payload:66, series:\"X\"},\n    {label:\"C\", payload:42, series:\"X\"},\n    {label:\"A\", payload:33, series:\"Y\"},\n    {label:\"B\", payload:72, series:\"Y\"},\n    {label:\"C\", payload:12, series:\"Y\"},\n    {label:\"A\", payload:44, series:\"Z\"},\n    {label:\"B\", payload:32, series:\"Z\"},\n    {label:\"C\", payload:80, series:\"Z\"}\n    ];\nreturn [m];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "3c681829.4ff7d8",
+                "f4e610a1.1c381",
+                "80476e4d.6f64a",
+                "fe515729.789e58"
+            ]
+        ]
+    },
+    {
+        "id": "c2d23159.73b39",
+        "type": "inject",
+        "z": "47cb23609908597c",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "71de4fb7.df017"
+            ]
+        ]
+    },
+    {
+        "id": "29cd8a13.ecade6",
+        "type": "ui_button",
+        "z": "47cb23609908597c",
+        "name": "",
+        "group": "ab397e95.29ebe",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Clear All",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "",
+        "x": 290,
+        "y": 60,
+        "wires": [
+            [
+                "c7f5183f.012728",
+                "f5108a61.91a6b8",
+                "3c681829.4ff7d8",
+                "fe515729.789e58",
+                "f4e610a1.1c381",
+                "80476e4d.6f64a"
+            ]
+        ]
+    },
+    {
+        "id": "23148e520d99c8d5",
+        "type": "debug",
+        "z": "47cb23609908597c",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 80,
+        "wires": []
+    }
+]
