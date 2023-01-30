@@ -16,6 +16,57 @@
         "env": []
     },
     {
+        "id": "990122356a4eb22b",
+        "type": "group",
+        "z": "1f38868320890080",
+        "name": "",
+        "style": {
+            "fill": "#ffffbf",
+            "label": true
+        },
+        "nodes": [
+            "755e08a5.08de88",
+            "17838719.4d97c9",
+            "1b74bf88552d3037",
+            "ae44d3cecc0465cb",
+            "3161c7607f5a0b87",
+            "fa955112670d61cd"
+        ],
+        "x": 34,
+        "y": 19,
+        "w": 832,
+        "h": 162
+    },
+    {
+        "id": "821a2ea6c917c621",
+        "type": "group",
+        "z": "1f38868320890080",
+        "name": "",
+        "style": {
+            "fill": "#e3f3d3",
+            "label": true
+        },
+        "nodes": [
+            "92faf77c.5ffee8",
+            "b6eb04ec.5164b8",
+            "e326eafb9cbec9cb",
+            "8e24da0fa310bf47",
+            "400ff1298b88f506",
+            "b085c63a7f7dea90",
+            "129cea026e82c9b5",
+            "4db4f86d0563112e",
+            "7f47b34a0104fdbf",
+            "2599517d492fca43",
+            "86bb75277e9de4ec",
+            "17b377ee0afff891",
+            "5c4f90b5b2eb6215"
+        ],
+        "x": 34,
+        "y": 219,
+        "w": 1352,
+        "h": 182
+    },
+    {
         "id": "9ebd97a26562fd52",
         "type": "MySQLdatabase",
         "name": "",
@@ -52,7 +103,7 @@
         "type": "ui_tab",
         "name": "MySQL Data",
         "icon": "dashboard",
-        "order": 5,
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -188,9 +239,19 @@
         "order": 2
     },
     {
+        "id": "0f587a33ac5edcbd",
+        "type": "ui_link",
+        "name": "Learn more",
+        "link": "https://codeandcompile.com/course/interface-mysql-with-plc-via-node-red",
+        "icon": "open_in_browser",
+        "target": "iframe",
+        "order": 3
+    },
+    {
         "id": "92faf77c.5ffee8",
         "type": "function",
         "z": "1f38868320890080",
+        "g": "821a2ea6c917c621",
         "name": "Read from MySQL",
         "func": "msg.topic = \"Select * from mysql_training.table;\";\nreturn msg;",
         "outputs": 1,
@@ -198,8 +259,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 180,
+        "x": 750,
+        "y": 280,
         "wires": [
             [
                 "b6eb04ec.5164b8"
@@ -210,10 +271,11 @@
         "id": "b6eb04ec.5164b8",
         "type": "mysql",
         "z": "1f38868320890080",
+        "g": "821a2ea6c917c621",
         "mydb": "9ebd97a26562fd52",
         "name": "",
         "x": 930,
-        "y": 180,
+        "y": 280,
         "wires": [
             [
                 "129cea026e82c9b5"
@@ -224,18 +286,20 @@
         "id": "755e08a5.08de88",
         "type": "comment",
         "z": "1f38868320890080",
-        "name": "Flow to query database and format for chart",
+        "g": "990122356a4eb22b",
+        "name": "Flow to store the time in two different formats in the global variable",
         "info": "",
-        "x": 210,
-        "y": 40,
+        "x": 300,
+        "y": 60,
         "wires": []
     },
     {
         "id": "e326eafb9cbec9cb",
         "type": "ui_template",
         "z": "1f38868320890080",
+        "g": "821a2ea6c917c621",
         "group": "2e52cc461d10f3d7",
-        "name": "",
+        "name": "table",
         "order": 5,
         "width": "6",
         "height": "10",
@@ -245,8 +309,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 1100,
-        "y": 260,
+        "x": 1090,
+        "y": 360,
         "wires": [
             []
         ]
@@ -255,6 +319,7 @@
         "id": "17838719.4d97c9",
         "type": "inject",
         "z": "1f38868320890080",
+        "g": "990122356a4eb22b",
         "name": "",
         "props": [
             {
@@ -272,7 +337,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
+        "x": 140,
         "y": 100,
         "wires": [
             [
@@ -285,6 +350,7 @@
         "id": "1b74bf88552d3037",
         "type": "change",
         "z": "1f38868320890080",
+        "g": "990122356a4eb22b",
         "name": "Format Date time",
         "rules": [
             {
@@ -300,7 +366,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
+        "x": 410,
         "y": 100,
         "wires": [
             [
@@ -312,15 +378,16 @@
         "id": "8e24da0fa310bf47",
         "type": "function",
         "z": "1f38868320890080",
-        "name": "function 1",
-        "func": "var time1 = global.get('time1');\nvar time2 = global.get('time2');\nvar value1= msg.payload;\nvar value2= msg.payload + 10;\nmsg.topic = 'INSERT INTO`mysql_training`.`table` (timestamp1,timestamp2, value1,value2)VALUES(\"'+time1+'\",'+time2+','+value1+','+value2+');';\nreturn msg;",
+        "g": "821a2ea6c917c621",
+        "name": "Insert Query",
+        "func": "var time1 = global.get('time1');//String format\nvar time2 = global.get('time2');//ISO format\nvar value1= msg.payload;\nvar value2= msg.payload + 10;\nmsg.topic = 'INSERT INTO`mysql_training`.`table` (timestamp1,timestamp2, value1,value2)VALUES(\"'+time1+'\",'+time2+','+value1+','+value2+');';\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 200,
+        "x": 390,
+        "y": 300,
         "wires": [
             [
                 "4db4f86d0563112e"
@@ -331,13 +398,14 @@
         "id": "400ff1298b88f506",
         "type": "random",
         "z": "1f38868320890080",
+        "g": "821a2ea6c917c621",
         "name": "",
         "low": 1,
         "high": 10,
         "inte": "true",
         "property": "payload",
-        "x": 180,
-        "y": 200,
+        "x": 200,
+        "y": 300,
         "wires": [
             [
                 "8e24da0fa310bf47"
@@ -348,6 +416,7 @@
         "id": "b085c63a7f7dea90",
         "type": "ui_chart",
         "z": "1f38868320890080",
+        "g": "821a2ea6c917c621",
         "name": "",
         "group": "3bdc5520.301bda",
         "order": 4,
@@ -382,8 +451,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1340,
-        "y": 180,
+        "x": 1300,
+        "y": 280,
         "wires": [
             []
         ]
@@ -392,6 +461,7 @@
         "id": "ae44d3cecc0465cb",
         "type": "function",
         "z": "1f38868320890080",
+        "g": "990122356a4eb22b",
         "name": "Set.Global",
         "func": "global.set('time1',msg.payload);\nreturn msg;",
         "outputs": 1,
@@ -399,7 +469,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 670,
         "y": 100,
         "wires": [
             [
@@ -411,6 +481,7 @@
         "id": "129cea026e82c9b5",
         "type": "change",
         "z": "1f38868320890080",
+        "g": "821a2ea6c917c621",
         "name": "Format data",
         "rules": [
             {
@@ -427,7 +498,7 @@
         "to": "",
         "reg": false,
         "x": 1110,
-        "y": 180,
+        "y": 280,
         "wires": [
             [
                 "b085c63a7f7dea90"
@@ -438,6 +509,7 @@
         "id": "3161c7607f5a0b87",
         "type": "function",
         "z": "1f38868320890080",
+        "g": "990122356a4eb22b",
         "name": "Set.Global",
         "func": "global.set('time2',msg.payload);\nreturn msg;",
         "outputs": 1,
@@ -445,7 +517,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
+        "x": 390,
         "y": 140,
         "wires": [
             []
@@ -455,10 +527,11 @@
         "id": "4db4f86d0563112e",
         "type": "mysql",
         "z": "1f38868320890080",
+        "g": "821a2ea6c917c621",
         "mydb": "9ebd97a26562fd52",
         "name": "",
-        "x": 530,
-        "y": 200,
+        "x": 550,
+        "y": 300,
         "wires": [
             [
                 "92faf77c.5ffee8",
@@ -470,6 +543,7 @@
         "id": "7f47b34a0104fdbf",
         "type": "inject",
         "z": "1f38868320890080",
+        "g": "821a2ea6c917c621",
         "name": "Clear",
         "props": [
             {
@@ -488,7 +562,7 @@
         "payload": "[]",
         "payloadType": "json",
         "x": 1110,
-        "y": 220,
+        "y": 320,
         "wires": [
             [
                 "b085c63a7f7dea90"
@@ -499,6 +573,7 @@
         "id": "2599517d492fca43",
         "type": "function",
         "z": "1f38868320890080",
+        "g": "821a2ea6c917c621",
         "name": "Read from MySQL",
         "func": "msg.topic = \"Select timestamp1, value1, value2 from mysql_training.table;\";\nreturn msg;",
         "outputs": 1,
@@ -506,8 +581,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 260,
+        "x": 750,
+        "y": 360,
         "wires": [
             [
                 "86bb75277e9de4ec"
@@ -518,10 +593,11 @@
         "id": "86bb75277e9de4ec",
         "type": "mysql",
         "z": "1f38868320890080",
+        "g": "821a2ea6c917c621",
         "mydb": "9ebd97a26562fd52",
         "name": "",
         "x": 930,
-        "y": 260,
+        "y": 360,
         "wires": [
             [
                 "e326eafb9cbec9cb"
@@ -532,12 +608,13 @@
         "id": "fa955112670d61cd",
         "type": "link out",
         "z": "1f38868320890080",
+        "g": "990122356a4eb22b",
         "name": "link out 1",
         "mode": "link",
         "links": [
             "17b377ee0afff891"
         ],
-        "x": 735,
+        "x": 825,
         "y": 100,
         "wires": []
     },
@@ -545,17 +622,29 @@
         "id": "17b377ee0afff891",
         "type": "link in",
         "z": "1f38868320890080",
+        "g": "821a2ea6c917c621",
         "name": "link in 1",
         "links": [
             "fa955112670d61cd"
         ],
-        "x": 55,
-        "y": 200,
+        "x": 75,
+        "y": 300,
         "wires": [
             [
                 "400ff1298b88f506"
             ]
         ]
+    },
+    {
+        "id": "5c4f90b5b2eb6215",
+        "type": "comment",
+        "z": "1f38868320890080",
+        "g": "821a2ea6c917c621",
+        "name": "Insert PLC values here",
+        "info": "",
+        "x": 200,
+        "y": 260,
+        "wires": []
     },
     {
         "id": "1c24be99.3dc2f1",
